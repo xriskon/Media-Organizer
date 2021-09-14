@@ -56,7 +56,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox minHeight="200.0" minWidth="500.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.MainController">
+<VBox fx:id="main" minHeight="200.0" minWidth="500.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -93,7 +93,7 @@
         <Menu mnemonicParsing="false" text="Help">
           <items>
             <MenuItem mnemonicParsing="false" text="Check for updates" />
-                  <MenuItem mnemonicParsing="false" onAction="#showInfo" text="Info" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAboutBox" text="Info" />
           </items>
         </Menu>
       </menus>
@@ -106,21 +106,20 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView fx:id="table_cleaner" focusTraversable="false" prefHeight="529.0" prefWidth="900.0" tableMenuButtonVisible="true">
+                              <TableView fx:id="tbl_cleaner" focusTraversable="false" prefHeight="529.0" prefWidth="900.0" tableMenuButtonVisible="true">
                                 <columns>
-                                  <TableColumn fx:id="table_cleaner_title" minWidth="20.0" prefWidth="350.0" text="Movie Title" />
-                                  <TableColumn fx:id="table_cleaner_netflix" prefWidth="110.0" text="Netflix" />
-                                    <TableColumn fx:id="table_cleaner_hulu" prefWidth="110.0" text="Hulu" />
-                                    <TableColumn fx:id="table_cleaner_disney" prefWidth="110.0" text="Disney+" />
-                                    <TableColumn fx:id="table_cleaner_amazon" prefWidth="110.0" text="Amazon Prime" />
+                                  <TableColumn minWidth="20.0" prefWidth="350.0" text="Movie Title" />
+                                  <TableColumn prefWidth="110.0" text="Netflix" />
+                                    <TableColumn prefWidth="110.0" text="Hulu" />
+                                    <TableColumn prefWidth="110.0" text="Disney+" />
+                                    <TableColumn prefWidth="110.0" text="Amazon Prime" />
                                 </columns>
                               </TableView>
                               <HBox alignment="CENTER" prefHeight="0.0" prefWidth="900.0" spacing="25.0">
                                  <children>
-                                    <TextField fx:id="txt_cleaner_dir" />
-                                    <Button mnemonicParsing="false" onAction="#selectFolder" text="Select Folder" />
-                                    <Button mnemonicParsing="false" onAction="#getMovieList" text="Fetch Data" />
-                                    <ComboBox fx:id="cmb_codes" prefHeight="25.0" prefWidth="116.0" promptText="Country Code" />
+                                    <TextField fx:id="txt_cln_folder" />
+                                    <Button mnemonicParsing="false" onAction="#btn_cleaner" text="Select Folder" />
+                                    <ComboBox prefHeight="25.0" prefWidth="116.0" promptText="Country Code" />
                                  </children>
                               </HBox>
                            </children>
@@ -159,13 +158,13 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <TextField />
-                                          <Button mnemonicParsing="false" text="Select Folder" />
+                                          <TextField fx:id="txt_rnm_folder" />
+                                          <Button mnemonicParsing="false" onAction="#btn_renamer" text="Select Folder" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <ComboBox fx:id="cmb_format" prefWidth="150.0" promptText="Format" />
+                                          <ComboBox prefWidth="150.0" promptText="Format" />
                                           <Button mnemonicParsing="false" text="Search" />
                                           <Button mnemonicParsing="false" text="Rename" />
                                        </children>

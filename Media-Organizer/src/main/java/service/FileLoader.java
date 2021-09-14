@@ -4,9 +4,10 @@ import java.io.File;
 
 public class FileLoader {
     private File directory;
+    private File[] files;
 
-    public String[] getFiles() {
-        return directory.list();
+    private File[] retrieveFiles() {
+        return directory.listFiles();
     }
 
     public File getDirectory() {
@@ -15,5 +16,10 @@ public class FileLoader {
 
     public void setDirectory(File directory) {
         this.directory = directory;
+        retrieveFiles();
+    }
+
+    public File[] getFiles() {
+        return files;
     }
 }
